@@ -19,16 +19,21 @@ def load_leaderboard(file_name, leader_names, leader_scores):
     index = 0
 
     # TODO 1: use a while loop to read the leader name from the line (format is "leader_name,leader_score")
-
+    while (line[index] != ","):
+      leader_name = leader_name + line[index] 
+      index = index + 1
+    print("leader name is:", leader_name)
 
     # TODO 2: add the leader name to the list
-
-    
+    leader_names.append(leader_name)
     # TODO 3: read the player score using a similar loop
-
-    
+    while (line[index] != "\n"):
+      index= index+1
+      leader_score = leader_score + line[index]
+    print("leader score:", leader_score)
     # TODO 4: add the player score to the list
-
+    leader_score=int(leader_score)
+    leader_scores.append(leader_score)
 
   leaderboard_file.close()
 
@@ -38,16 +43,17 @@ def update_leaderboard(file_name, leader_names, leader_scores, player_name, play
 
   leader_index = 0
   # TODO 5: loop through all the scores in the existing leaderboard list
-  '''
-    while ():
+
+  while (leader_index < len(leader_scores)):
     # TODO 6: check if this is the position to insert new score at
-    if ():
+    if (player_score >= leader_scores[leader_index]):
       break
     else:
       leader_index = leader_index + 1
-  '''
-  # TODO 7: insert the new player and score at the appropriate position
 
+  # TODO 7: insert the new player and score at the appropriate position
+    leader_scores.insert(leader_index, player_score)
+    leader_names.insert(leader_index, player_name)
 
   # TODO 8: keep both lists at 5 elements only (top 5 players)
 
@@ -102,4 +108,3 @@ def draw_leaderboard(leader_names, leader_scores, high_scorer, turtle_object, pl
     turtle_object.write("You earned a silver medal!", font=font_setup)
     turtle_object.write("You earned a gold medal!", font=font_setup)
   '''
-  
