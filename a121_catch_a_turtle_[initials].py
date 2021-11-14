@@ -3,7 +3,7 @@
 #-----import statements-----
 import turtle as trtl
 import random as rand
-import leaderboard as ld
+import leaderboard as lb
 #-----game configuration-----
 
 colors = ["forestgreen", "mediumseagreen", "khaki", "yellowgreen", "olive drab"]
